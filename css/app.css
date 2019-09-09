@@ -41,7 +41,20 @@ body {
     margin: auto;
     background-color: white;
     position: relative;
-    border-radius: 50px;
+    border-radius: 40px;
+}
+
+.congrats-popup h3 {
+    font-size: 50px;
+}
+
+.retry {
+    background-color: white;
+    border: gray 1px solid;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 20px auto;
+    font-size: 24px;
 }
 
 .container {

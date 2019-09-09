@@ -79,6 +79,14 @@ function looseStar() {
     star.classList.add("fa-star-o");
 }
 
+function restoreStars() {
+    const emptyStars = document.querySelectorAll(".fa-star-o");
+    for (let star of emptyStars) {
+        star.classList.remove("fa-star-o");
+        star.classList.add("fa-star");
+    }
+}
+
 function updateStars() {
     switch (moves) {
         case 9:
@@ -91,6 +99,17 @@ function updateStars() {
             looseStar();
             break;
     }
+}
+
+function showCongratsPopup() {
+    const neededMoves = document.querySelector(".needed-moves");
+    neededMoves.textContent = moves;
+
+    const neededTime = document.querySelector(".needed-time");
+    neededTime.textContent = timer;
+
+    const popupContainer = document.querySelector(".popup-container");
+    popupContainer.classList.add("show-popup");
 }
 
 function cardClicked(event) {
@@ -133,7 +152,7 @@ function cardClicked(event) {
             // found all pairs
             if (foundPairs === 8) {
                 gameRunning = false;
-                // show congrats-popup
+                showCongratsPopup();
             }
         }
     }
@@ -185,29 +204,42 @@ function initRating() {
     //set moves to 0
     moves = 0;
     updateMoves();
+    restoreStars();
 
     //set timer
     timer = 0;
     updateTimer();
 }
 
-function setUpRestartButton() {
-    const restartButton = document.querySelector(".restart");
-    restartButton.addEventListener("click", function () {
-        const deckElement = document.querySelector(".deck");
-        while (deckElement.firstChild) {
-            deckElement.firstChild.remove();
-        }
-        initDeck();
-        initRating();
+function resetGame() {
+    const deckElement = document.querySelector(".deck");
+    while (deckElement.firstChild) {
+        deckElement.firstChild.remove();
+    }
+    initDeck();
+    initRating();
 
-        //reset timer
-        gameRunning = 0;
-        timer = 0;
-        updateTimer();
+    foundPairs = 0;
+
+    //reset timer
+    gameRunning = 0;
+    timer = 0;
+    updateTimer();
+}
+
+function setUpResetButton() {
+    const restartButton = document.querySelector(".restart");
+    restartButton.addEventListener("click", resetGame);
+
+    const retryButton = document.querySelector(".retry");
+    retryButton.addEventListener("click", function () {
+        resetGame();
+
+        const popupContainer = document.querySelector(".popup-container");
+        popupContainer.classList.remove("show-popup");
     });
 }
 
 initDeck();
 initRating();
-setUpRestartButton();
+setUpResetButton();
