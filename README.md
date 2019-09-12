@@ -1,20 +1,21 @@
 # Memory Game Project
 
-## Table of Contents
+This is a memory game project I made while I did the [Udacity Frontend Webdeveloper nano degree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011). Feel free to to download, play and change it.
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## Installation
 
-## Instructions
+Use git to download the project
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+```
+$ git clone https://github.com/hagenstrahl/fend-project-memory-game.git
+```
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Usage
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+Just open the index.html in any browser you like.
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Dependencies
+* based on the Udacity Memory Game [starter project](https://github.com/udacity/fend-project-memory-game)
+* [Bootstrap](https://getbootstrap.com/)
+* [Fontawesome 4](https://fontawesome.com/v4.7.0/icons/)
+* [Animate.css](https://github.com/daneden/animate.css/)
